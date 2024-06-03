@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:simple_crud_n_print/screens/data/data.dart';
+import 'package:simple_crud_n_print/screens/data/data_screen.dart';
 import 'package:simple_crud_n_print/screens/report/report.dart';
 
 class Home extends StatefulWidget {
@@ -19,7 +19,7 @@ class _HomeState extends State<Home> {
         style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
       ),
     ),
-    Data(),
+    DataScreen(),
     Report(),
   ];
 

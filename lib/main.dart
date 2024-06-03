@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:simple_crud_n_print/screens/home.dart';
+import 'package:simple_crud_n_print/services/position_service.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MultiProvider(
+    providers: [ChangeNotifierProvider(create: (context) => PositionService())],
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
