@@ -3,10 +3,10 @@ import 'package:provider/provider.dart';
 import 'package:simple_crud_n_print/models/position.dart';
 import 'package:simple_crud_n_print/services/position_service.dart';
 
-class PositionScreen extends StatefulWidget {
+class PositionScreen extends StatelessWidget {
   const PositionScreen({super.key});
 
-  static void form({context, Position? position}) {
+  void form({context, Position? position}) {
     String? name = position?.name;
 
     showModalBottomSheet(
@@ -66,11 +66,6 @@ class PositionScreen extends StatefulWidget {
   }
 
   @override
-  State<PositionScreen> createState() => _PositionScreenState();
-}
-
-class _PositionScreenState extends State<PositionScreen> {
-  @override
   Widget build(BuildContext context) {
     return Consumer<PositionService>(builder: (context, value, child) {
       return FutureBuilder(
@@ -100,7 +95,7 @@ class _PositionScreenState extends State<PositionScreen> {
                           Expanded(child: Text(snapshot.data![index].name)),
                           IconButton(
                             onPressed: () async {
-                              PositionScreen.form(
+                              const PositionScreen().form(
                                   context: context,
                                   position: snapshot.data![index]);
                             },

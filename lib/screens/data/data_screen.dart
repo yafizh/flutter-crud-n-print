@@ -40,7 +40,7 @@ class _DataScreenState extends State<DataScreen> {
             floatingActionButton: FloatingActionButton(
                 onPressed: () {
                   if (_tabBarViews[_tabIndex] is PositionScreen) {
-                    PositionScreen.form(context: context);
+                    const PositionScreen().form(context: context);
                   }
                 },
                 child: const Icon(Icons.add)),
