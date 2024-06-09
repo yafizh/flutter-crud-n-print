@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:simple_crud_n_print/screens/data/data_screen.dart';
-import 'package:simple_crud_n_print/screens/report/report.dart';
+import 'package:simple_crud_n_print/screens/report/report_screen.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -20,7 +20,7 @@ class _HomeState extends State<Home> {
       ),
     ),
     DataScreen(),
-    Report(),
+    ReportScreen(),
   ];
 
   void _onItemTapped(int index) {
