@@ -39,7 +39,9 @@ class _DataScreenState extends State<DataScreen> {
           child: Scaffold(
             floatingActionButton: FloatingActionButton(
                 onPressed: () {
-                  if (_tabBarViews[_tabIndex] is PositionScreen) {
+                  if (_tabBarViews[_tabIndex] is EmployeeScreen) {
+                    const EmployeeScreen().form(context: context);
+                  } else if (_tabBarViews[_tabIndex] is PositionScreen) {
                     const PositionScreen().form(context: context);
                   }
                 },
