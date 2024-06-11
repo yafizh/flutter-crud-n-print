@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:printing/printing.dart';
 import 'package:simple_crud_n_print/screens/report/employee_screen.dart';
 import 'package:simple_crud_n_print/screens/report/position_screen.dart';
 
@@ -38,7 +39,27 @@ class _ReportScreenState extends State<ReportScreen> {
           length: _tabs.length,
           child: Scaffold(
             floatingActionButton: FloatingActionButton(
-                onPressed: () {}, child: const Icon(Icons.print)),
+                onPressed: () {
+                  showModalBottomSheet(
+                    context: context,
+                    builder: (context) {
+                      if (_tabBarViews[_tabIndex] is EmployeeScreen) {
+                        return PdfPreview(
+                            build: (format) => const EmployeeScreen()
+                                .generatePdf(context, format));
+                      } else if (_tabBarViews[_tabIndex] is PositionScreen) {
+                        return PdfPreview(
+                            build: (format) => const PositionScreen()
+                                .generatePdf(context, format));
+                      }
+
+                      return const Center(
+                        child: Text('PDF NOT FOUND'),
+                      );
+                    },
+                  );
+                },
+                child: const Icon(Icons.print)),
             appBar: AppBar(
               title: const Text('Report'),
               bottom: TabBar(
